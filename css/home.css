@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+*{
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+html,body{
+	height: 100vh;
+	width: 100%;
+	background-color: #abe9cd;
+	background-image: linear-gradient(315deg, rgba(171, 233, 205, 0.9), rgba(62, 173, 207, 0.7) 94%), url('https://static.noticiasaominuto.com.br/stockimages/1920/naom_595d89e2f08ee.jpg?1512406026');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+  	background-position: center;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+	font-family: 'Montserrat', sans-serif;
+}
+
+#home{
+	height: 100vh;
+	width: 100%;
+	background: rgba(0,0,0,0.5);
+}
+
+.grid-x{
+	position: relative;
+	top: 50%;
+	transform: translateY(-140%);
+}
+
+#menu{
+	display: block;
+}
+
+#login{
+	margin-top: 5px;
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+}
+
+#login:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.grid-x h4{
+		color: #fff; 
+		margin-top: -100px
+	}
+
+#logo{
+	width: 200px;
+	padding: 1em;
+}
+
+.box_search{
+	height: 4em;
+	border-radius: 10px;
+}
+
+.box_search span, .input-group-label{
+	background: rgba(255,255,255, 1);
+	border: 0;
+	font-size: 1.5em;
+	color: #ffbf00;
+}
+
+.box_search input{
+	background: rgba(255,255,255, 09);
+	outline: none;
+	box-shadow: none;
+	padding: none;
+	margin: none;
+	border: 0;
+	font-size: 1.5em;
+	box-shadow: none;
+	color: #666;
+}
+
+.box_search input:focus{
+	background: rgba(255,255,255, 09);
+	outline: none;
+	box-shadow: none;
+	padding: none;
+	margin: none;
+	border: 0;
+	font-size: 1.5em;
+	box-shadow: none;
+	color: #666;
+}
+
+.input-group input{
+	font-size: 1.2em; 
+	color: #777; 
+	padding: 0.5em;
+}
+
+#cpf_login::-webkit-input-placeholder , #password::-webkit-input-placeholder {color: #777;}
+
+.box_search button{
+	background: #2396e1;
+}
+
+input::-webkit-input-placeholder {color: #666;}
+input:focus::-webkit-input-placeholder, #cpf_login:focus::-webkit-input-placeholder, #password:focus::-webkit-input-placeholder { color:transparent; }
+input:focus{
+	outline: none;
+	box-shadow: none;
+	padding: none;
+	margin: none;
+	border: 0;
+	background: rgba(255,255,255,1);
+}
+
+.reveal, .menu li{
+	outline: none;
+	border: 0;
+}
+
+.align-center li a{
+	color: #fff;
+	font-size: 1.3em;
+}
+
+#submenu li a{
+	color: #2396e1;
+}
+
+#submenu li:hover a{
+	color: #ffc800;
+}
+
+#login:after{
+	display: none;
+}
+
+#footer{
+	text-align: center;
+	position: fixed; 
+	display: block; 
+	bottom: 0;
+	background: rgba(0,0,0,0.5);
+	padding: 0.1em;
+	width: 100%;
+	color: #999;
+	font-size: 0.7em;
+}
+
+.delete:hover{
+	background: rgba(231, 76, 60,0.5);
+	color: #fff;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+	#logo{
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.grid-x h4{
+		color: #fff; 
+		margin-top: -50px
+	}
+
+	.menu.align-center {
+    -ms-flex-pack: start;
+        justify-content: flex-start; }
+
+	.menu li{
+		margin: 0.5em;
+	}
+	.grid-x{
+		margin-top: -7em;
+	}
+}
