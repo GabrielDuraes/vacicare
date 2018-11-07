@@ -51,6 +51,10 @@ session_start();
 		$id = $tb_usuario['id_usuario'];
 		$nome = $tb_usuario['nome_usuario'];
 		$tipo_user = $tb_usuario['tipo_usuario'];
+
+		if(empty($tb_usuario)){
+			echo '<h1 class="text-center">Usuário não encontrado!</h1>';
+		}else{
 		?>
 
 		<div class="cell small-1"></div>
@@ -108,7 +112,7 @@ session_start();
 							<td><?php echo $tb_registro['data_vacinacao'] ?></td> 
 							<td><?php 
 							$tb_usuario = new Tb_usuario();
-							$tb_usuario = $tb_usuario->Read($id);
+							$tb_usuario = $tb_usuario->Read($tb_registro['fk_aplicador']);
 							echo $tb_usuario['nome_usuario'];
 							?></td>
 							<td class="delete" id="<?php echo $tb_registro['id_registro']?>" <?php if(!$_SESSION){ echo 'style="display: none;"';} ?>><i class="fa fa-trash"></i></td>
@@ -119,6 +123,7 @@ session_start();
 				</table>
 				<?php 
 			}
+		}
 			?>
 		</div>
 
@@ -226,24 +231,6 @@ session_start();
 					?>
 					<option value="<?php echo $vacina['id_vacina']; ?>"><?php echo $vacina['nome_vacina']; ?></option>
 				<?php }?>
-			</select>
-		</div>
-
-		<div class="input-group">
-			<span class="input-group-label" style="width: 2.5em"><i class="fa fa-flag"></i></span>
-			<select class="input-group-field" id="fk_aplicador" style="font-size: 1.2em; color: #777; padding: 0.5em;">
-				<option value="" selected disabled>Aplicador</option>
-				<?php 
-				$tb_usuario = new Tb_usuario();
-				$tb_usuario = $tb_usuario->ReadAll();
-				foreach ($tb_usuario as $user) {
-					if($user['tipo_usuario'] == 0){
-						?>
-						<option value="<?php echo $user['id_usuario']; ?>"><?php echo $user['nome_usuario']; ?></option>
-						<?php 
-					} 
-				}
-				?>
 			</select>
 		</div>
 
@@ -386,7 +373,7 @@ session_start();
 				e.preventDefault();
 				
 				var fk_vacina = $('#fk_vacina').val();
-				var fk_aplicador = $('#fk_aplicador').val();
+				var fk_aplicador = '<?php echo $_SESSION['id_usuario']; ?>';
 				var id_usuario = '<?php echo $id; ?>';
 
 				if(fk_vacina == null || fk_aplicador == null || id_usuario == ""){
