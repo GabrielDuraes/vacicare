@@ -7,11 +7,22 @@ if($showerros) {
 
 session_start();
 // Inicia a sessão
-if($_SERVER['HTTPS'] == 'off' || empty($_SERVER['HTTPS'])){
+
+if(empty($_SESSION)){
+	if($_SERVER['HTTPS'] == 'on'){
+        header('Location:  http://localhost/vacicare/pesquisa.php?' . http_build_query(array(
+    	'cpf' => $_GET['cpf']
+		)));       
+} 
+}else{
+	if($_SERVER['HTTPS'] == 'off' || empty($_SERVER['HTTPS'])){
         header('Location:  https://localhost/vacicare/pesquisa.php?' . http_build_query(array(
     	'cpf' => $_GET['cpf']
 		)));       
 } 
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
