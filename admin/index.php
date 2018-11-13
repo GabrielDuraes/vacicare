@@ -14,6 +14,10 @@ if(empty($_SESSION)){ ?>
 	</script>
 	<?php
 }
+if($_SERVER['HTTPS'] == 'off' || empty($_SERVER['HTTPS'])){
+    header("Location: https://localhost/vacicare/admin/");
+    exit;   
+}
 ?>
 <!DOCTYPE html>
 <html>

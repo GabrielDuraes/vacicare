@@ -7,6 +7,10 @@ if($showerros) {
 
 session_start();
 // Inicia a sessão
+if($_SERVER['HTTPS'] == 'on'){
+        header("Location: http://localhost/vacicare/");
+        exit;        
+}
 ?>
 <!DOCTYPE html>
 <html>
