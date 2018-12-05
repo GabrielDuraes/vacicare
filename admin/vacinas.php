@@ -104,45 +104,40 @@ if($_SERVER['HTTPS'] == 'off' || empty($_SERVER['HTTPS'])){
 			Desenvolvido por Durães, Lipin e Pedro
 		</div>
 	</div>
+	<?php
 
+		$tb_usuario = new Tb_usuario();
+		$tb_usuario = $tb_usuario->Read($_SESSION['id_usuario']);
+	?>
 	<!-- modal editar perfil -->
 	<div class="reveal animated bounceInDown" id="perfil_user" data-reveal data-overlay="false">
 		<h4 class="text-center">Editar Perfil</h4>
 
 		<div class="input-group">
 			<span class="input-group-label" style="width: 2.5em"><i class="fa fa-user"></i></span>
-			<input class="input-group-field" type="text" id="nome_usuario_edita" value="<?php echo $_SESSION['nome_usuario'] ?>" placeholder="Nome do Usuário">
+			<input class="input-group-field" type="text" id="nome_usuario_edita" value="<?php echo $tb_usuario['nome_usuario'] ?>" placeholder="Nome do Usuário">
 		</div>
 
 		<div class="input-group">
 			<span class="input-group-label" style="width: 2.5em"><i class="fa fa-flag"></i></span>
 			<select class="input-group-field" id="sexo_usuario_edita" style="font-size: 1.2em; color: #777; padding: 0.5em;">
 				<option value="" selected disabled>Gênero</option>
-				<option <?php if($_SESSION['nome_usuario'] == 0){echo 'selected';} ?> value="0">Masculino</option>
-				<option <?php if($_SESSION['nome_usuario'] == 1){echo 'selected';} ?> value="1">Feminino</option>
-				<option <?php if($_SESSION['nome_usuario'] == 2){echo 'selected';} ?> value="2">Outro</option>
+				<option <?php if($tb_usuario['nome_usuario'] == 0){echo 'selected';} ?> value="0">Masculino</option>
+				<option <?php if($tb_usuario['nome_usuario'] == 1){echo 'selected';} ?> value="1">Feminino</option>
+				<option <?php if($tb_usuario['nome_usuario'] == 2){echo 'selected';} ?> value="2">Outro</option>
 			</select>
 		</div>
 
 		<div class="input-group">
 			<span class="input-group-label" style="width: 2.5em"><i class="fa fa-address-card"></i></span>
-			<input class="input-group-field" type="text" id="cpf_edita" value="<?php echo $_SESSION['cpf_usuario'] ?>" placeholder="CPF do Usuário">
+			<input class="input-group-field" type="text" id="cpf_edita" value="<?php echo $tb_usuario['cpf_usuario'] ?>" placeholder="CPF do Usuário">
 		</div>
 
 		<div class="input-group">
 			<span class="input-group-label" style="width: 2.5em"><i class="fa fa-calendar"></i></span>
-			<input class="input-group-field" type="text" id="data_nasc_edita" value="<?php $nova_data = str_replace("-", "/", $_SESSION['data_nasc']);
+			<input class="input-group-field" type="text" id="data_nasc_edita" value="<?php $nova_data = str_replace("-", "/", $tb_usuario['data_nasc']);
 		echo date('d/m/Y', strtotime($nova_data)); ?>" placeholder="Data de Nascimento">
 		</div>
-
-		<!--<div class="input-group">
-			<span class="input-group-label" style="width: 2.5em"><i class="fa fa-users"></i></span>
-			<select class="input-group-field" id="tipo_user_edita" style="font-size: 1.2em; color: #777; padding: 0.5em;">
-				<option value="husker" selected disabled>Tipo de Usuário</option>
-				<option <?php if($_SESSION['nome_usuario'] == 0){echo 'selected';} ?> value="0">Admin</option>
-				<option <?php if($_SESSION['nome_usuario'] == 1){echo 'selected';} ?> value="1">User</option>
-			</select>
-		</div>-->
 
 		<p style="text-align: center;"><button type="button" class="success button" style="background: #2980b9; color: #fff; font-weight: 600;" id="editar_user">Alterar <i class="fa fa-check"></i> </button></p>
 		<button class="close-button" data-close aria-label="Close modal" type="button">

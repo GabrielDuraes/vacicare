@@ -118,7 +118,7 @@
 					sexo_usuario = '$this->sexo_usuario',
 					cpf_usuario = '$this->cpf_usuario',
 					data_nasc = '$this->data_nasc',
-					updated_at = now()
+					update_at = now()
 
 				WHERE id_usuario = '$this->id_usuario'
 				";
@@ -135,7 +135,7 @@
 				UPDATE tb_usuario SET
 
 					senha_usuario = '$this->senha_usuario',
-					updated_at = now()
+					update_at = now()
 
 				WHERE id_usuario = '$this->id_usuario'
 				";
@@ -153,7 +153,7 @@
 
 					senha_usuario = '$this->senha_usuario',
 					tipo_usuario = '$this->tipo_usuario',
-					updated_at = now()
+					update_at = now()
 
 				WHERE id_usuario = '$this->id_usuario'
 				";
