@@ -10,7 +10,7 @@ session_start();
 if($_SERVER['HTTPS'] == 'on'){
         header("Location: http://localhost/vacicare/");
         exit;        
-}
+	}
 ?>
 <!DOCTYPE html>
 <html>
